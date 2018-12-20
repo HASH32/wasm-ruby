@@ -2,5 +2,7 @@ app.wasm
 app.js
 */*.wast
 .ruby-version
+*/mruby/
+*/bin/
 
 .DS_Store
