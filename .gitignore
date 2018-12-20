@@ -1,4 +1,6 @@
 app.wasm
 app.js
+*/*.wast
+.ruby-version
 
 .DS_Store

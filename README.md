@@ -8,7 +8,7 @@ This repo contains the compile toolchain for ruby to wasm, with docker.
 
 ```
 cd docker-machine
-docker build -t emscripten-slim-mruby .
+docker build -t awin/emcc-mruby .
 ```
 
 ### Build WebAssembly
@@ -19,7 +19,7 @@ docker run \
   --rm \
   -v $(pwd):/src \
   -u emscripten \
-  emscripten-slim-mruby \
+  awin/emcc-mruby \
   ruby_wasm build hello.rb
 ```
 
@@ -29,7 +29,7 @@ This should generate `app.js` and `app.wasm` in the intro directory.
 
 ```
 cd intro
-python -m SimpleHTTPServer
+ruby server.rb
 ```
 
 And open http://localhost:8000 in the browser. In developer tools console, you should find the console statement
