@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ruby on WebAssembly</title>
+  </head>
+  <body></body>
+  <script src="a.out.js"></script>
+  <script>
+    let nsquare;
+    let ncube;
+    let nfactorial;
+
+    Module.onRuntimeInitialized = _ => {
+      console.log('Initializing WASM runtime...');
+      nsquare = Module.cwrap('nsquare', 'number', ['number']);
+      ncube = Module.cwrap('ncube', 'number', ['number']);
+      nfactorial = Module.cwrap('nfactorial', 'number', ['number']);
+
+      console.log("Square(12):", nsquare(12));
+      console.log("Cube(3):", ncube(3));
+      console.log("Factorial(9):", nfactorial(9));
+    };
+  </script>
+
+</html>
