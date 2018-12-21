@@ -15,15 +15,15 @@ main(void)
 	fclose(fp);
 
 	// First access the module
-    struct RClass *module = mrb_module_get(mrb, "WikiExample");
+  struct RClass *module = mrb_module_get(mrb, "WikiExample");
 
-    // Get the class that is defined in the WikiExample module
-    struct RClass *class = mrb_class_get_under(mrb, module, "WikiManager");
+  // Get the class that is defined in the WikiExample module
+  struct RClass *class = mrb_class_get_under(mrb, module, "WikiManager");
 
-    // Create a new instance of WikiManager, no arguments are needed (0, NULL)
-    mrb_value c = mrb_obj_new(mrb, class, 0, NULL);
+  // Create a new instance of WikiManager, no arguments are needed (0, NULL)
+  mrb_value c = mrb_obj_new(mrb, class, 0, NULL);
 
-    // Call the get_version method on the instance.
+  // Call the get_version method on the instance.
 	mrb_value res = mrb_funcall(mrb, c, "get_version", 0);
 
 	// Convert the result (a fixed number wrapped in a mrb_value)
@@ -31,10 +31,11 @@ main(void)
 
 	// If crashed, provide exception info
 	if (mrb->exc)
-  	{
-    	mrb_print_error(mrb);
-  	}
-  	// Close the Ruby environment
+	{
+  	mrb_print_error(mrb);
+	}
+
+  // Close the Ruby environment
 	mrb_close(mrb);
 }
 

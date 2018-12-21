@@ -4,5 +4,3 @@ class MyLib
     n*n
   end
 end
-# puts e=ruby_exp(3)
-# puts ruby_log(e)

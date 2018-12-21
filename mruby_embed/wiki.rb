@@ -1,3 +1,5 @@
+# Example from https://github.com/mruby/mruby/wiki/Building-your-Ruby-environment-and-accessing-it
+
 module WikiExample
   class WikiManager
     attr_accessor :active
